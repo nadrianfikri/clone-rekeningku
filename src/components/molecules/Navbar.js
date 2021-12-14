@@ -1,7 +1,11 @@
 // import Button from '../atoms/Button';
-import { NavItem, NavLogo } from '../atoms/NavItems';
-import { MoonIcon } from '@heroicons/react/outline';
 import { Link } from 'react-router-dom';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoon } from '@fortawesome/free-regular-svg-icons';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+
+import { NavItem, NavLogo } from '../atoms/NavItems';
 
 export default function Navbar() {
   return (
@@ -15,7 +19,10 @@ export default function Navbar() {
         </div>
       </section>
       <section className="flex justify-center items-center space-x-12">
-        <p className="text-stone-500 hover:text-stone-700">Bahasa Indonesia</p>
+        <div className="flex space-x-2 items-center">
+          <p className="text-stone-500 hover:text-stone-700">Bahasa Indonesia</p>
+          <FontAwesomeIcon icon={faCaretDown} className="text-stone-600 transition-all" />
+        </div>
         <div className="flex items-center space-x-6">
           <Link to="/" className="text-stone-500 hover:text-primary transition-all">
             Masuk
@@ -24,7 +31,7 @@ export default function Navbar() {
             Daftar
           </Link>
           <button>
-            <MoonIcon className="w-6 text-stone-500 rotate-[30deg] hover:text-amber-500" />
+            <FontAwesomeIcon icon={faMoon} className="text-stone-400 hover:text-amber-500 text-xl transition-all" />
           </button>
         </div>
       </section>
