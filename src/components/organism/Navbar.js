@@ -6,7 +6,7 @@ import { faMoon } from '@fortawesome/free-regular-svg-icons';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 import { NavLogo } from '../atoms/NavItems';
-import Navitems from './Navitems';
+import Navitems from '../molecules/Navitems';
 import { LeftSide, RightSide } from '../atoms/NavContainer';
 
 export default function Navbar() {
