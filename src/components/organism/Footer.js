@@ -27,18 +27,22 @@ function Footer() {
     {
       name: 'Facebook',
       icon: faFacebookSquare,
+      link: 'https://www.facebook.com/',
     },
     {
       name: 'Instagram',
       icon: faInstagram,
+      link: 'https://www.instagram.com/',
     },
     {
       name: 'Twitter',
       icon: faTwitter,
+      link: 'https://www.twitter.com/',
     },
     {
       name: 'Telegram',
       icon: faTelegramPlane,
+      link: 'https://web.telegram.org/',
     },
   ];
 
@@ -47,7 +51,7 @@ function Footer() {
       <Row className="space-x-6 justify-around ">
         <Legality dataLogo={image} />
         <Information dataInfo={footerDesc} />
-        <CorporateIdentity name="Rekeningku" sosmed={sosmedLogo} copyright="2021 Rekeningku.com" link={'https://www.google.com/'} />
+        <CorporateIdentity name="Rekeningku" sosmed={sosmedLogo} copyright="2021 Rekeningku.com" />
       </Row>
       <WarningQoutes
         className="text-white italic"

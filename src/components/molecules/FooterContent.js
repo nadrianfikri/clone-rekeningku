@@ -39,7 +39,7 @@ export const CorporateIdentity = (props) => {
       </p>
       <div className="flex justify-between">
         {props.sosmed.map((item, i) => (
-          <a href={props.link} target="_blank" rel="noreferrer">
+          <a href={item.link} target="_blank" rel="noreferrer">
             <FontAwesomeIcon key={i} icon={item.icon} className=" text-white/40 hover:text-white text-3xl transition-all " />
           </a>
         ))}
