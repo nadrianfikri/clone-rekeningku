@@ -2,7 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 function NavLogo() {
   return (
-    <Link to="/" className="text-logo text-logo font-bold font-sans">
+    <Link to="/" className="text-logo font-bold font-sans">
       Rekeningku
     </Link>
   );
