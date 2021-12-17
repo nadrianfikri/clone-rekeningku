@@ -1,10 +1,12 @@
-import { Exchange } from './pages';
+import { Routes, Route } from 'react-router-dom';
+import { Home, Exchange } from './pages';
 
 function App() {
   return (
-    <div className="">
-      <Exchange />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="trade" element={<Exchange />} />
+    </Routes>
   );
 }
 

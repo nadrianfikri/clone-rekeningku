@@ -1,4 +1,4 @@
-// import Home from './Home';
+import Home from './Home';
 import Exchange from './Exchange';
 
-export { Exchange };
+export { Home, Exchange };
