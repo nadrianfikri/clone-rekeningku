@@ -47,7 +47,7 @@ function Footer() {
   ];
 
   return (
-    <div className="hidden md:block  px-4 pb-4 pt-14 md:px-10 lg:px-20 space-y-8 bg-primary text-white w-full ">
+    <footer className="hidden md:block  px-4 pb-4 pt-14 md:px-10 lg:px-20 space-y-8 bg-primary text-white w-full ">
       <Row className="space-x-6 justify-around ">
         <Legality dataLogo={image} />
         <Information dataInfo={footerDesc} />
@@ -58,7 +58,7 @@ function Footer() {
         highlight="Peringatan"
         text="Pergerakan harga uang digital sangat fluktuatif, harga dapat berubah secara signifikan dari waktu ke waktu. Pergerakan harga uang digital dipengaruhi oleh banyak faktor yang harus Anda gali informasinya. Investasi aset Anda di uang digital merupakan investasi beresiko tinggi. Anda diharapkan untuk menggunakan pertimbangan yang matang dalam membuat keputusan beli atau jual aset Anda. Rekeningku.com tidak memaksa pengguna untuk melakukan aksi jual beli. Semua keputusan jual beli aset uang digital Anda merupakan keputusan Anda sendiri dan tidak dipengaruhi oleh pihak lain."
       />
-    </div>
+    </footer>
   );
 }
 
