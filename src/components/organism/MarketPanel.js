@@ -1,7 +1,7 @@
 import { Col, Row } from '../atoms/Direction';
 import Search from '../atoms/Search';
 import MarketTable, { SortBar, MarketTableData } from '../molecules/MarketTable';
-function Markets() {
+function MarketPanel() {
   return (
     <Col className="w-[274px] h-[390px] border border-slate-300 rounded overflow-hidden text-xs space-y-2">
       <Row className="space-x-2 p-2">
@@ -19,4 +19,4 @@ function Markets() {
   );
 }
 
-export default Markets;
+export default MarketPanel;

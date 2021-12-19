@@ -1,7 +1,7 @@
 import { Col } from '../atoms/Direction';
 import { Table, TBody, TData, THeader } from '../atoms/Table';
 
-function Transaction(props) {
+function TransactionPanel(props) {
   return (
     <Col className="relative w-[274px] h-[390px] px-2 border border-slate-300 rounded text-xs space-y-2 overflow-auto">
       <Table>
@@ -16,4 +16,4 @@ function Transaction(props) {
   );
 }
 
-export default Transaction;
+export default TransactionPanel;

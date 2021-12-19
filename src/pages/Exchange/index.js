@@ -1,9 +1,10 @@
 import { Col, Row } from '../../components/atoms/Direction';
+import BidAskPanel from '../../components/organism/BidAskPanel';
 import CurrentCoinStat from '../../components/organism/CurrentCoinStat';
 import Footer from '../../components/organism/Footer';
-import Markets from '../../components/organism/Markets';
+import MarketPanel from '../../components/organism/MarketPanel';
 import Navbar from '../../components/organism/Navbar';
-import Transaction from '../../components/organism/Transaction';
+import TransactionPanel from '../../components/organism/TransactionPanel';
 
 function Exchange() {
   const currentStat = [
@@ -52,15 +53,17 @@ function Exchange() {
             <CurrentCoinStat coinName="Bitcoin" code="BTC" pair="IDR" stat={currentStat} />
             <Row className="space-x-2">
               <Col className="space-y-2">
-                <Markets />
+                <MarketPanel />
                 <p className="font-bold">Aktivitas Transaksi</p>
-                <Transaction dataTrans={trans} />
+                <TransactionPanel dataTrans={trans} />
               </Col>
               {/* chart */}
               <Col className="flex-1 p-2 border border-slate-300 rounded  bg-rose-200">chart</Col>
             </Row>
           </Col>
-          <Col className="w-auto lg:w-[270px] p-2 border border-slate-300 rounded  bg-emerald-300">Right Side</Col>
+          <Col className="w-auto lg:w-[270px] p-2 border border-slate-300 rounded  bg-emerald-300">
+            <BidAskPanel />
+          </Col>
         </Row>
       </main>
       <Footer />
