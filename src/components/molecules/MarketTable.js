@@ -9,9 +9,21 @@ function MarketTable(props) {
 }
 export const MarketTableData = (props) => {
   return (
-    <Row className="py-1 px-2 gap-1 items-center w-full text-[11px] font-semibold hover:bg-stone-100">
+    <Row className="py-1 px-2 gap-1 items-center w-full text-[11px]  hover:bg-stone-100">
       <FontAwesomeIcon className="text-gray-300 mr-[2px] z-10 cursor-pointer" icon={faStar} onClick={props.onToggle} />
-      <button onClick={props.onClick} className=" flex w-full justify-between font-semibold ">
+      <button onClick={props.onClick} className=" flex w-full justify-between  ">
+        <CoinPair logo={props.logo} code={props.code} />
+        <p>{props.price}</p>
+        <p>{props.percent}</p>
+      </button>
+    </Row>
+  );
+};
+export const FavoriteCoin = (props) => {
+  return (
+    <Row className="py-1 px-2 gap-1 items-center w-full text-[11px]  hover:bg-stone-100">
+      <FontAwesomeIcon className="text-yellow-400 mr-[2px] z-10 cursor-pointer" icon={faStar} onClick={props.onToggle} />
+      <button onClick={props.onClick} className=" flex w-full justify-between  ">
         <CoinPair logo={props.logo} code={props.code} />
         <p>{props.price}</p>
         <p>{props.percent}</p>

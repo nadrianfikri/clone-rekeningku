@@ -26,7 +26,6 @@ function Exchange() {
       price: '92.689.606.003',
     },
   ];
-
   const trans = [
     {
       time: '11:40',
