@@ -1,17 +1,13 @@
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import CoinLogo from './CoinLogo';
-
 function Table({ children }) {
-  return <table className="text-right w-full  text-xs font-normal border border-gray-400 ">{children}</table>;
+  return <table className="text-right w-full overflow-auto text-xs font-normal">{children}</table>;
 }
 function THeader(props) {
   return (
-    <thead className="text-gray-500 ">
-      <tr className="">
-        <th className="text-left">{props.head1}</th>
-        <th>{props.head2}</th>
-        <th>{props.head3}</th>
+    <thead className="text-gray-500 sticky top-0 bg-white">
+      <tr className=" ">
+        <th className="text-left pt-2">{props.head1}</th>
+        <th className="text-right pt-2">{props.head2}</th>
+        <th className="text-right pt-2">{props.head3}</th>
       </tr>
     </thead>
   );
@@ -19,19 +15,15 @@ function THeader(props) {
 
 function TData(props) {
   return (
-    <tr className="relative hover:bg-stone-200 cursor-pointer font-semibold text-[11px]" onClick={props.onClick}>
-      <td className="text-left font-light flex gap-1  items-center">
-        <FontAwesomeIcon className="relative text-gray-300 mr-[2px] z-10 hover:text-yellow-500" icon={faStar} onClick={props.onToggle} />
-        <CoinLogo src={props.coinLogo} name={props.data1} />
-        <span className="font-bold">{props.data1}</span>/<span className="text-[10px]">IDR</span>
-      </td>
-      <td>{props.data2}</td>
-      <td>{props.data3}</td>
+    <tr className=" hover:bg-stone-200 cursor-pointer " onClick={props.onClick}>
+      <td className={`${props.style1} text-left`}>{props.data1}</td>
+      <td className={`${props.style2} `}>{props.data2}</td>
+      <td className={`${props.style3}`}>{props.data3}</td>
     </tr>
   );
 }
 function TBody({ children }) {
-  return <tbody className="overflow-auto">{children}</tbody>;
+  return <tbody className=" overflow-y-scroll">{children}</tbody>;
 }
 
 function TFoot(props) {

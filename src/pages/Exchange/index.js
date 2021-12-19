@@ -3,6 +3,7 @@ import CurrentCoinStat from '../../components/organism/CurrentCoinStat';
 import Footer from '../../components/organism/Footer';
 import Markets from '../../components/organism/Markets';
 import Navbar from '../../components/organism/Navbar';
+import Transaction from '../../components/organism/Transaction';
 
 function Exchange() {
   const currentStat = [
@@ -24,6 +25,24 @@ function Exchange() {
       price: '92.689.606.003',
     },
   ];
+
+  const trans = [
+    {
+      time: '11:40',
+      price: '683.530.000',
+      idr: '100.000.000',
+    },
+    {
+      time: '11:30',
+      price: '683.530.000',
+      idr: '100.000.000',
+    },
+    {
+      time: '11:20',
+      price: '683.530.000',
+      idr: '100.000.000',
+    },
+  ];
   return (
     <div>
       <Navbar />
@@ -32,7 +51,11 @@ function Exchange() {
           <Col className="flex-1">
             <CurrentCoinStat coinName="Bitcoin" code="BTC" pair="IDR" stat={currentStat} />
             <Row className="space-x-2">
-              <Markets />
+              <Col className="space-y-2">
+                <Markets />
+                <p className="font-bold">Aktivitas Transaksi</p>
+                <Transaction dataTrans={trans} />
+              </Col>
               {/* chart */}
               <Col className="flex-1 p-2 border border-slate-300 rounded  bg-rose-200">chart</Col>
             </Row>

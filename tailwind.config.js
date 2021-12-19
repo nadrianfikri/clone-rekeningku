@@ -13,6 +13,7 @@ module.exports = {
         primary: '#197cf1',
         secondary: '#252525',
         danger: '#ef5350;',
+        green: '#26a587',
       },
       fontSize: {
         logo: '28px',
