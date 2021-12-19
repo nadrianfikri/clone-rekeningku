@@ -1,5 +1,5 @@
 function Table({ children }) {
-  return <table className="text-right w-full overflow-auto text-xs font-normal">{children}</table>;
+  return <table className="relative text-right w-full overflow-auto text-xs font-normal">{children}</table>;
 }
 function THeader(props) {
   return (

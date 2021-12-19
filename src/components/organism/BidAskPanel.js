@@ -1,5 +1,6 @@
-import { Col, Row } from '../atoms/Direction';
-import { Table, TBody, TData, THeader } from '../atoms/Table';
+import { AskOnlyTable, BidAskTable, BidOnlyTable } from '../atoms/BidAskTables';
+import { Col } from '../atoms/Direction';
+import { Tab } from '@headlessui/react';
 
 function BidAskPanel(props) {
   const bidAskIcon = [
@@ -19,32 +20,31 @@ function BidAskPanel(props) {
 
   return (
     <Col className="w-auto lg:w-[270px] h-[920px]  border border-slate-300 rounded">
-      <Row className="bg-gray-50 space-x-1 p-1">
-        {bidAskIcon.map((item, i) => (
-          <button className="bg-white py-[2px] px-[6px] w-8 h-7 border">
-            <img src={item.domain} alt={item.name} />
-          </button>
-        ))}
-      </Row>
-      <Col className="overflow-auto">
-        <Table>
-          <THeader head1="Harga" head2="BTC" head3="IDR" />
-          <TBody>
-            {props.dataBidAsk.map((item, i) => (
-              <TData key={i} style1="text-green" data1={item.price} data2={item.btc} data3={item.idr} />
-            ))}
-          </TBody>
-        </Table>
-
-        <span className="bg-stone-200 p-1 text-center font-bold ">600.000.000</span>
-        <Table>
-          <TBody>
-            {props.dataBidAsk.map((item, i) => (
-              <TData key={i} style1="text-green" data1={item.price} data2={item.btc} data3={item.idr} />
-            ))}
-          </TBody>
-        </Table>
-      </Col>
+      <Tab.Group>
+        <Tab.List className="flex bg-gray-50 space-x-1 p-1">
+          {bidAskIcon.map((item, i) => (
+            <Tab>
+              {({ selected }) => (
+                <button className={`border  py-[2px] px-[6px] w-8 h-7 ${selected ? 'bg-blue-50  border-blue-400' : 'bg-white'}`}>
+                  <img src={item.domain} alt={item.name} />
+                  {console.log(selected)}
+                </button>
+              )}
+            </Tab>
+          ))}
+        </Tab.List>
+        <Tab.Panels className="flex flex-col overflow-auto">
+          <Tab.Panel className="flex flex-col">
+            <BidAskTable coin={props.coin} dataBidAsk={props.dataBidAsk} lastPrice={props.lastPrice} />
+          </Tab.Panel>
+          <Tab.Panel className="flex flex-col">
+            <BidOnlyTable coin={props.coin} dataBid={props.dataBid} lastBid={props.lastBid} />
+          </Tab.Panel>
+          <Tab.Panel className="flex flex-col">
+            <AskOnlyTable coin={props.coin} dataAsk={props.dataAsk} lastAsk={props.lastAsk} />
+          </Tab.Panel>
+        </Tab.Panels>
+      </Tab.Group>
     </Col>
   );
 }

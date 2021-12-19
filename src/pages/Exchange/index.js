@@ -148,7 +148,16 @@ function Exchange() {
               <Col className="flex-1 p-2 border  border-slate-300 rounded  bg-rose-200">chart</Col>
             </Row>
           </Col>
-          <BidAskPanel dataBidAsk={bidAsk} />
+          <BidAskPanel
+            //
+            coin="BTC"
+            lastPrice="650.000.000"
+            lastBid="660.000.000"
+            lastAsk="640.000.000"
+            dataBidAsk={bidAsk}
+            dataBid={bidAsk}
+            dataAsk={bidAsk}
+          />
         </Row>
         <div className="w-full bg-red-200">kolom pending</div>
       </main>
