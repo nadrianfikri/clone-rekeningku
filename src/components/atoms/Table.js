@@ -4,10 +4,10 @@ function Table({ children }) {
 function THeader(props) {
   return (
     <thead className="text-gray-500 sticky top-0 bg-white">
-      <tr className=" ">
-        <th className="text-left pt-2">{props.head1}</th>
-        <th className="text-right pt-2">{props.head2}</th>
-        <th className="text-right pt-2">{props.head3}</th>
+      <tr className="">
+        <th className="text-left py-2 pl-2">{props.head1}</th>
+        <th className="text-right py-2">{props.head2}</th>
+        <th className="text-right py-2 pr-2">{props.head3}</th>
       </tr>
     </thead>
   );
@@ -15,15 +15,15 @@ function THeader(props) {
 
 function TData(props) {
   return (
-    <tr className=" hover:bg-stone-200 cursor-pointer " onClick={props.onClick}>
-      <td className={`${props.style1} text-left`}>{props.data1}</td>
-      <td className={`${props.style2} `}>{props.data2}</td>
-      <td className={`${props.style3}`}>{props.data3}</td>
+    <tr className=" hover:bg-emerald-50 cursor-pointer " onClick={props.onClick}>
+      <td className={`${props.style1} text-left py-1 pl-2`}>{props.data1}</td>
+      <td className={`${props.style2} py-1`}>{props.data2}</td>
+      <td className={`${props.style3} py-1 pr-2`}>{props.data3}</td>
     </tr>
   );
 }
 function TBody({ children }) {
-  return <tbody className=" overflow-y-scroll">{children}</tbody>;
+  return <tbody className=" overflow-y-scroll ">{children}</tbody>;
 }
 
 function TFoot(props) {

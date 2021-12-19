@@ -3,7 +3,7 @@ import Search from '../atoms/Search';
 import MarketTable, { SortBar, MarketTableData } from '../molecules/MarketTable';
 function MarketPanel() {
   return (
-    <Col className="w-[274px] h-[390px] border border-slate-300 rounded overflow-hidden text-xs space-y-2">
+    <Col className="w-[274px] h-full border border-slate-300 rounded overflow-hidden text-xs space-y-2">
       <Row className="space-x-2 p-2">
         <button className="text-stone-500">Favorit</button>
         <button className="rounded bg-gray-200 p-1">Markets</button>

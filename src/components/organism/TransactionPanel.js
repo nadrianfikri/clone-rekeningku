@@ -3,7 +3,7 @@ import { Table, TBody, TData, THeader } from '../atoms/Table';
 
 function TransactionPanel(props) {
   return (
-    <Col className="relative w-[274px] h-[390px] px-2 border border-slate-300 rounded text-xs space-y-2 overflow-auto">
+    <Col className="relative w-[274px] h-full border border-slate-300 rounded text-xs space-y-2 overflow-auto">
       <Table>
         <THeader head1="Waktu" head2="Harga" head3="IDR" />
         <TBody>

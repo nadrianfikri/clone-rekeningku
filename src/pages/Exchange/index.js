@@ -44,27 +44,113 @@ function Exchange() {
       idr: '100.000.000',
     },
   ];
+  const bidAsk = [
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+    {
+      price: '683.530.000',
+      btc: '0.00032',
+      idr: '100.000.000',
+    },
+  ];
   return (
     <div>
       <Navbar />
-      <main className="relative min-h-screen px-4 md:px-10 lg:px-20 py-4">
-        <Row className="w-full space-x-2">
-          <Col className="flex-1">
+      <main className="relative min-h-screen px-4 md:px-10 lg:px-20 py-4 space-y-10">
+        <Row className="w-full space-x-2 h-[920px]">
+          <Col className="flex-1 ">
             <CurrentCoinStat coinName="Bitcoin" code="BTC" pair="IDR" stat={currentStat} />
-            <Row className="space-x-2">
+            <Row className="space-x-2  h-full">
               <Col className="space-y-2">
                 <MarketPanel />
                 <p className="font-bold">Aktivitas Transaksi</p>
                 <TransactionPanel dataTrans={trans} />
               </Col>
               {/* chart */}
-              <Col className="flex-1 p-2 border border-slate-300 rounded  bg-rose-200">chart</Col>
+              <Col className="flex-1 p-2 border  border-slate-300 rounded  bg-rose-200">chart</Col>
             </Row>
           </Col>
-          <Col className="w-auto lg:w-[270px] p-2 border border-slate-300 rounded  bg-emerald-300">
-            <BidAskPanel />
-          </Col>
+          <BidAskPanel dataBidAsk={bidAsk} />
         </Row>
+        <div className="w-full bg-red-200">kolom pending</div>
       </main>
       <Footer />
     </div>
