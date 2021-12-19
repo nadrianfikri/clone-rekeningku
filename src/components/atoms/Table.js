@@ -3,7 +3,7 @@ function Table({ children }) {
 }
 function THeader(props) {
   return (
-    <thead className="text-gray-500 sticky top-0 bg-white">
+    <thead className={`${props.className} text-gray-500 sticky top-0 bg-white`}>
       <tr className="">
         <th className="text-left py-2 pl-2">{props.head1}</th>
         <th className="text-right py-2">{props.head2}</th>
@@ -26,40 +26,33 @@ function TBody({ children }) {
   return <tbody className=" overflow-y-scroll ">{children}</tbody>;
 }
 
-function TFoot(props) {
+function OrderTable(props) {
   return (
-    <tfoot className="font-bold text-xs md:text-lg">
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td className="py-2">Total</td>
-        <td className="py-2">:</td>
-        <td className="text-red-600 py-2">{props.total}</td>
-      </tr>
-    </tfoot>
+    <table className="relative text-left w-full  overflow-auto text-xs text-stone-500">
+      <thead className="bg-stone-100">
+        <tr>
+          <th className="py-1 pl-2">{props.head1}</th>
+          <th className="py-1">{props.head2}</th>
+          <th className="py-1">{props.head3}</th>
+          <th className="py-1">{props.head4}</th>
+          <th className="py-1">{props.head5}</th>
+          <th className="py-1">{props.head6}</th>
+          <th className="py-1 pr-2">{props.head7}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="py-1">{props.data1}</td>
+          <td className="py-1">{props.data2}</td>
+          <td className="py-1">{props.data3}</td>
+          <td className="py-1">{props.data4}</td>
+          <td className="py-1">{props.data5}</td>
+          <td className="py-1">{props.data6}</td>
+          <td className="py-1">{props.data7}</td>
+        </tr>
+      </tbody>
+    </table>
   );
 }
-function TData2(props) {
-  return (
-    <tr className="border-b border-grey-600  overflow-hidden">
-      <td className="px-2">{props.no}</td>
-      <td>{props.user}</td>
-      <td className="md:w-64 ">{props.trip}</td>
-      <td>
-        <a href={props.proofTF} target="_blank" rel="noreferrer">
-          <img className="w-20" src={props.proofTF} alt="proof" />{' '}
-        </a>
-      </td>
-      <td className="">{props.updatedAt}</td>
-      <td className={`font-bold ${props.statusStyle} py-4`}>{props.status}</td>
-      <td>
-        <button onClick={props.onClick} type="button">
-          <img id={props.id} src="/assets/icons/search.svg" alt="icon" />
-        </button>
-      </td>
-    </tr>
-  );
-}
-export { Table, THeader, TBody, TData, TData2, TFoot };
+
+export { Table, THeader, TBody, TData, OrderTable };

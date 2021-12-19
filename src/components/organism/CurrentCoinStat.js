@@ -6,7 +6,14 @@ function CurrentCoinStat(props) {
   return (
     <Row className="justify-between mr-20 py-1 mb-4">
       <CurrentCoin code={props.code} coinName={props.coinName} pair={props.pair} />
-      <StatList currentStat={props.stat} />
+      <StatList
+        //
+        lastPrice={props.lastPrice}
+        percent={props.percent}
+        highPrice={props.highPrice}
+        lowPrice={props.lowPrice}
+        vol={props.vol}
+      />
     </Row>
   );
 }

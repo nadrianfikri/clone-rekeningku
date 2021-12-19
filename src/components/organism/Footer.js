@@ -55,7 +55,7 @@ function Footer() {
       </Row>
       <WarningQoutes
         className="text-white italic"
-        highlight="Peringatan"
+        highlight="Peringatan :"
         text="Pergerakan harga uang digital sangat fluktuatif, harga dapat berubah secara signifikan dari waktu ke waktu. Pergerakan harga uang digital dipengaruhi oleh banyak faktor yang harus Anda gali informasinya. Investasi aset Anda di uang digital merupakan investasi beresiko tinggi. Anda diharapkan untuk menggunakan pertimbangan yang matang dalam membuat keputusan beli atau jual aset Anda. Rekeningku.com tidak memaksa pengguna untuk melakukan aksi jual beli. Semua keputusan jual beli aset uang digital Anda merupakan keputusan Anda sendiri dan tidak dipengaruhi oleh pihak lain."
       />
     </footer>
