@@ -5,8 +5,9 @@ import CurrentCoinStat from '../../components/organism/CurrentCoinStat';
 import Footer from '../../components/organism/Footer';
 import MarketPanel from '../../components/organism/MarketPanel';
 import Navbar from '../../components/organism/Navbar';
-import OrderPanel from '../../components/organism/OrderPanel';
+import HistoryPanel from '../../components/organism/HistoryPanel';
 import TransactionPanel from '../../components/organism/TransactionPanel';
+import OrderPanel from '../../components/organism/OrderPanel';
 
 function Exchange() {
   const currentStat = {
@@ -124,6 +125,9 @@ function Exchange() {
     name: 'Bitcoin',
     code: 'BTC',
   };
+
+  const title = `BTC to IDR | 677.780.000 | Harga Bitcoin Hari Ini | Rekeningku`;
+  window.document.title = title;
   return (
     <div>
       <Navbar />
@@ -148,7 +152,10 @@ function Exchange() {
                 <TransactionPanel dataTrans={trans} />
               </Col>
               {/* chart */}
-              <Col className="flex-1 p-2 border  border-slate-300 rounded  bg-rose-200">chart</Col>
+              <Col className="flex-1 space-y-2">
+                <Col className="flex-1 border border-slate-300 rounded ">Chart</Col>
+                <OrderPanel />
+              </Col>
             </Row>
           </Col>
           <BidAskPanel
@@ -162,7 +169,8 @@ function Exchange() {
             dataAsk={bidAsk}
           />
         </Row>
-        <OrderPanel />
+
+        <HistoryPanel />
 
         <WarningQoutes
           className="text-gray-400"
