@@ -5,7 +5,7 @@ function Stat(props) {
     <Col className="justify-center">
       <p className="text-xs text-stone-400">{props.name}</p>
       <p className="font-bold text-sm">
-        {props.price} <span className="ml-2 text-red-500">{props.percent}</span>
+        {props.price} <span className={`ml-2 ${props.style}`}>{props.percent}</span>
       </p>
     </Col>
   );

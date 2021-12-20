@@ -42,7 +42,7 @@ function OrderPanel() {
               <h1 className="mb-4 font-semibold">Beli BTC</h1>
               <LimitForm percent={buy} changePercent={setBuy} />
             </div>
-            <div className="flex-1 px-6  border-r border-slate-300">
+            <div className="flex-1 px-6 ">
               <h1 className="mb-4 font-semibold">Jual BTC</h1>
               <LimitForm percent={sell} changePercent={setSell} />
             </div>
@@ -52,7 +52,7 @@ function OrderPanel() {
               <h1 className="mb-4 font-semibold">Beli BTC</h1>
               <MarketForm percent={buy} changePercent={setBuy} />
             </div>
-            <div className="flex-1 px-6  border-r border-slate-300">
+            <div className="flex-1 px-6 ">
               <h1 className="mb-4 font-semibold">Jual BTC</h1>
               <MarketForm percent={sell} changePercent={setSell} />
             </div>

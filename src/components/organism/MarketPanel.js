@@ -2,7 +2,18 @@ import MarketTable, { SortBar, MarketTableData, FavoriteCoin } from '../molecule
 import { Tab } from '@headlessui/react';
 import { Col } from '../atoms/Direction';
 import Search from '../atoms/Search';
-function MarketPanel() {
+import { useState } from 'react';
+function MarketPanel(props) {
+  // format rupiah
+  const rupiah = (number) => {
+    return new Intl.NumberFormat('id-ID', {
+      minimumFractionDigits: 0,
+    }).format(number);
+  };
+  // const [coins, setCoins] = useState([]);
+  // const dataCoins = props.dataCoin.map((item) => setCoins(item.logo));
+  // console.log(dataCoins);
+
   return (
     <Col className="w-[274px] h-full border border-slate-300 rounded overflow-hidden text-xs space-y-2">
       <Tab.Group>
@@ -15,13 +26,14 @@ function MarketPanel() {
           <SortBar onSortPair onSortPrice onSortPercent data1="Pair" data2="Harga" data3="24H" />
           <Tab.Panels className="overflow-auto">
             <Tab.Panel>
-              <MarketTableData logo="./images/btc.jpeg" code="BTC" price="600.000.000" percent="-7.00%" onToggle onClick />
-              <MarketTableData logo="./images/btc.jpeg" code="BTC" price="600.000.000" percent="-7.00%" onToggle onClick />
-              <MarketTableData logo="./images/btc.jpeg" code="BTC" price="600.000.000" percent="-7.00%" onToggle onClick />
+              {props.dataPrice?.map((item) => (
+                <MarketTableData key={item.id} to={`/trade/${item.id}/${item.cd}-IDR`} logo="./images/btc.jpeg" code={item.cd} price={rupiah(item.c)} percent={item.cp} onToggle />
+              ))}
             </Tab.Panel>
-            <Tab.Panel>
-              <FavoriteCoin logo="./images/btc.jpeg" code="BTC" price="600.000.000" percent="-7.00%" onToggle onClick />
-            </Tab.Panel>
+            {props.dataPrice?.map((item) => (
+              <FavoriteCoin key={item.id} to={`/trade/${item.id}/${item.cd}-IDR`} logo="./images/btc.jpeg" code={item.cd} price={rupiah(item.c)} percent={item.cp} onToggle />
+            ))}
+            <Tab.Panel></Tab.Panel>
           </Tab.Panels>
         </MarketTable>
       </Tab.Group>
