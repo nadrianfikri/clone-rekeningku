@@ -2,6 +2,8 @@
 
 Repositori ini dibuat untuk keperluan test teknikal dari rekeningku.com
 
+- Nama: AHmad Alfikri Nadrian
+
 ## Technology Used
 - React.Js
 - Axios
