@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import rupiah from '../../utils/rupiahFormat';
 
 import MarketTable, { SortBar, MarketTableData, FavoriteCoin } from '../molecules/MarketTable';
@@ -26,10 +25,11 @@ function MarketPanel(props) {
                 <MarketTableData key={item.id} to={`/trade/${item.id}/${item.cd}-IDR`} logo="./images/btc.jpeg" code={item.cd} price={rupiah(item.c)} percent={item.cp} onToggle />
               ))}
             </Tab.Panel>
-            {props.dataPrice?.map((item) => (
-              <FavoriteCoin key={item.id} to={`/trade/${item.id}/${item.cd}-IDR`} logo="./images/btc.jpeg" code={item.cd} price={rupiah(item.c)} percent={item.cp} onToggle />
-            ))}
-            <Tab.Panel></Tab.Panel>
+            <Tab.Panel>
+              {props.dataPrice?.map((item) => (
+                <FavoriteCoin key={item.id} to={`/trade/${item.id}/${item.cd}-IDR`} logo="./images/btc.jpeg" code={item.cd} price={rupiah(item.c)} percent={item.cp} onToggle />
+              ))}
+            </Tab.Panel>
           </Tab.Panels>
         </MarketTable>
       </Tab.Group>

@@ -24,15 +24,16 @@ function Exchange() {
   const [order, setOrder] = useState([]);
 
   // get all coin data
-  const getCoins = async () => {
-    try {
-      const res = await API.get(`/coins`);
-      setCoins(res.data.result);
-      // console.log(res.data.result
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getCoins = async () => {
+  //   try {
+  //     const res = await API.get(`/coins`);
+
+  //     setCoins(res.data.result);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
   // get data price current coin
   const getPrice = async () => {
     try {
@@ -40,8 +41,16 @@ function Exchange() {
       const data = res.data;
       data.cp = data.cp.toFixed(2);
 
-      setPrice(data);
-      // console.log('price', res.data);
+      const coinData = await API.get(`/coins`);
+
+      // eslint-disable-next-line eqeqeq
+      const coin = coinData.data.result.find((item) => item.id == id);
+
+      setPrice({
+        ...data,
+        logo: coin?.logo,
+      });
+      setCoins(coinData.data.result);
     } catch (error) {
       console.log(error);
     }
@@ -70,7 +79,6 @@ function Exchange() {
       console.log(error);
     }
   };
-
   // get orderBook
   const getOrder = async () => {
     try {
@@ -86,124 +94,11 @@ function Exchange() {
   useEffect(() => {
     getPrice();
     getPrices();
-    getCoins();
     getTrans();
     getOrder();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // fake data
-  const currentStat = {
-    price: '683.530.000',
-    percent: '(-1.71%)',
-    high: '701.070.000',
-    low: '659.390.000',
-    vol: '92.689.606.003',
-  };
-  // const trans = [
-  //   {
-  //     time: '11:40',
-  //     price: '683.530.000',
-  //     idr: '100.000.000',
-  //   },
-  //   {
-  //     time: '11:30',
-  //     price: '683.530.000',
-  //     idr: '100.000.000',
-  //   },
-  //   {
-  //     time: '11:20',
-  //     price: '683.530.000',
-  //     idr: '100.000.000',
-  //   },
-  // ];
-  const bidAsk = [
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-    {
-      price: '683.530.000',
-      btc: '0.00032',
-      idr: '100.000.000',
-    },
-  ];
+  console.log(price);
 
   const title = `${price?.cd} to IDR | ${rupiah(price?.c)} | Harga ${price?.n} Hari Ini | Rekeningku`;
   window.document.title = title;
@@ -213,11 +108,12 @@ function Exchange() {
       <main className="relative min-h-screen px-4 md:px-10 lg:px-20 py-4 space-y-10">
         <Row className="w-full space-x-2 ">
           <Col className="flex-1  h-[846px]">
-            {price === null ? (
+            {price === null && coins.length === 0 ? (
               <p>Loading</p>
             ) : (
               <CurrentCoinStat
                 //
+                logo={price.logo}
                 coinName={price.n}
                 code={price.cd}
                 pair="IDR"

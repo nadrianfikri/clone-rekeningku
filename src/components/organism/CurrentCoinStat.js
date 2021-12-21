@@ -5,7 +5,7 @@ import StatList from '../molecules/StatList';
 function CurrentCoinStat(props) {
   return (
     <Row className="justify-between mr-20 py-1 mb-4">
-      <CurrentCoin code={props.code} coinName={props.coinName} pair={props.pair} />
+      <CurrentCoin logo={props.logo} code={props.code} coinName={props.coinName} pair={props.pair} />
       <StatList
         //
         lastPrice={props.lastPrice}

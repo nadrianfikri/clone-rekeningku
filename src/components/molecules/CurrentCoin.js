@@ -8,7 +8,7 @@ function CurrentCoin(props) {
         {props.code} <span className="text-stone-400 text-sm font-medium"> / {props.pair}</span>
       </p>
       <Row className="space-x-2">
-        <CoinLogo src="./images/btc.jpeg" name="btc" />
+        <CoinLogo src={props.logo} name={props.coinName} />
         <p className="text-[10.5px]">{props.coinName}</p>
       </Row>
     </Col>
