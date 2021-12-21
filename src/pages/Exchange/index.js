@@ -23,17 +23,6 @@ function Exchange() {
   const [trans, setTrans] = useState([]);
   const [order, setOrder] = useState([]);
 
-  // get all coin data
-  // const getCoins = async () => {
-  //   try {
-  //     const res = await API.get(`/coins`);
-
-  //     setCoins(res.data.result);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   // get data price current coin
   const getPrice = async () => {
     try {
@@ -71,7 +60,7 @@ function Exchange() {
       const res = await API.get(`acctrade/${coin}_IDR`);
       const data = res.data;
       data.map((item) => {
-        return (item[0] = new Date(item[0] * 1000).toLocaleTimeString('en-US').substring(0, 4));
+        return (item[0] = new Date(item[0] * 1000).toLocaleTimeString('en-US').substring(0, 5));
       });
 
       setTrans(data);
