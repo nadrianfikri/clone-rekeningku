@@ -37,13 +37,13 @@ function BidAskPanel(props) {
         </Tab.List>
         <Tab.Panels className="flex flex-col overflow-auto">
           <Tab.Panel className="flex flex-col">
-            <BidAskTable coin={props.coin} dataBidAsk={props.dataBidAsk} lastPrice={props.lastPrice} />
+            <BidAskTable coin={props.coin} dataBid={props.dataBid} dataAsk={props.dataAsk} lastPrice={props.lastPrice} />
           </Tab.Panel>
           <Tab.Panel className="flex flex-col">
-            <BidOnlyTable coin={props.coin} dataBid={props.dataBid} lastBid={props.lastBid} />
+            <BidOnlyTable coin={props.coin} dataBid={props.dataBid} lastPrice={props.lastPrice} />
           </Tab.Panel>
           <Tab.Panel className="flex flex-col">
-            <AskOnlyTable coin={props.coin} dataAsk={props.dataAsk} lastAsk={props.lastAsk} />
+            <AskOnlyTable coin={props.coin} dataAsk={props.dataAsk} lastPrice={props.lastPrice} />
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>

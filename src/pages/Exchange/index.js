@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { API } from '../../config/api';
+import rupiah from '../../utils/rupiahFormat';
 
 import { Col, Row } from '../../components/atoms/Direction';
 import WarningQoutes from '../../components/atoms/WarningQoutes';
@@ -20,9 +21,7 @@ function Exchange() {
   const [prices, setPrices] = useState([]);
   const [coins, setCoins] = useState([]);
   const [trans, setTrans] = useState([]);
-
-  // get coin id
-  // const currentCoin = coins.find((item) => item.accountcode === coin);
+  const [order, setOrder] = useState([]);
 
   // get all coin data
   const getCoins = async () => {
@@ -63,7 +62,7 @@ function Exchange() {
       const res = await API.get(`acctrade/${coin}_IDR`);
       const data = res.data;
       data.map((item) => {
-        return (item[0] = new Date(item[0] * 1000).toLocaleTimeString('en-US').substring(0, 5));
+        return (item[0] = new Date(item[0] * 1000).toLocaleTimeString('en-US').substring(0, 4));
       });
 
       setTrans(data);
@@ -72,11 +71,16 @@ function Exchange() {
     }
   };
 
-  // format rupiah
-  const rupiah = (number) => {
-    return new Intl.NumberFormat('id-ID', {
-      minimumFractionDigits: 0,
-    }).format(number);
+  // get orderBook
+  const getOrder = async () => {
+    try {
+      const res = await API.get(`/orderbook?id=${id}`);
+      const data = res.data;
+      data.s = Array.from(data.s).reverse();
+      setOrder(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -84,6 +88,8 @@ function Exchange() {
     getPrices();
     getCoins();
     getTrans();
+    getOrder();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // fake data
@@ -198,12 +204,8 @@ function Exchange() {
       idr: '100.000.000',
     },
   ];
-  // const coin = {
-  //   name: 'Bitcoin',
-  //   code: 'BTC',
-  // };
 
-  const title = `BTC to IDR | 677.780.000 | Harga Bitcoin Hari Ini | Rekeningku`;
+  const title = `${price?.cd} to IDR | ${rupiah(price?.c)} | Harga ${price?.n} Hari Ini | Rekeningku`;
   window.document.title = title;
   return (
     <div>
@@ -241,13 +243,10 @@ function Exchange() {
           </Col>
           <BidAskPanel
             //
-            coin="BTC"
-            lastPrice="650.000.000"
-            lastBid="660.000.000"
-            lastAsk="640.000.000"
-            dataBidAsk={bidAsk}
-            dataBid={bidAsk}
-            dataAsk={bidAsk}
+            coin={coin}
+            lastPrice={rupiah(price?.c)}
+            dataBid={order?.b}
+            dataAsk={order?.s}
           />
         </Row>
 
@@ -255,7 +254,7 @@ function Exchange() {
 
         <WarningQoutes
           className="text-gray-400"
-          text={`Jual Beli ${coin.name} Indonesia, kripto, dan aset digital lainnya dengan rupiah dan biaya terendah hanya di Rekeningku. Cek Harga ${coin.name} atau Kurs ${coin.name} hari ini dalam Rupiah (${coin.code} to IDR) secara real-time. Nikmati pengalaman trading ${coin.name} dengan fitur chart ${coin.name} dan teknikal indicator lengkap yang membantu dalam bertransaksi. Daftar jadi member di Rekeningku dan mulai investasi ${coin.name} sekarang!`}
+          text={`Jual Beli ${price?.n} Indonesia, kripto, dan aset digital lainnya dengan rupiah dan biaya terendah hanya di Rekeningku. Cek Harga ${price?.n} atau Kurs ${price?.n} hari ini dalam Rupiah (${price?.cd} to IDR) secara real-time. Nikmati pengalaman trading ${price?.n} dengan fitur chart ${price?.n} dan teknikal indicator lengkap yang membantu dalam bertransaksi. Daftar jadi member di Rekeningku dan mulai investasi ${price?.n} sekarang!`}
         />
       </main>
       <Footer />

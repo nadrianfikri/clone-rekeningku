@@ -1,13 +1,8 @@
+import rupiah from '../../utils/rupiahFormat';
 import { Col } from '../atoms/Direction';
 import { Table, TBody, TData, THeader } from '../atoms/Table';
 
 function TransactionPanel(props) {
-  // format rupiah
-  const rupiah = (number) => {
-    return new Intl.NumberFormat('id-ID', {
-      minimumFractionDigits: 0,
-    }).format(number);
-  };
   return (
     <Col className="relative w-[274px] h-full border border-slate-300 rounded text-xs space-y-2 overflow-auto">
       <Table>

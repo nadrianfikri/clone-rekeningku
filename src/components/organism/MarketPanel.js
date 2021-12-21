@@ -1,15 +1,11 @@
+import { useState } from 'react';
+import rupiah from '../../utils/rupiahFormat';
+
 import MarketTable, { SortBar, MarketTableData, FavoriteCoin } from '../molecules/MarketTable';
 import { Tab } from '@headlessui/react';
 import { Col } from '../atoms/Direction';
 import Search from '../atoms/Search';
-import { useState } from 'react';
 function MarketPanel(props) {
-  // format rupiah
-  const rupiah = (number) => {
-    return new Intl.NumberFormat('id-ID', {
-      minimumFractionDigits: 0,
-    }).format(number);
-  };
   // const [coins, setCoins] = useState([]);
   // const dataCoins = props.dataCoin.map((item) => setCoins(item.logo));
   // console.log(dataCoins);
