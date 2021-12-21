@@ -9,7 +9,7 @@ function NavLogo() {
 }
 function NavItem(props) {
   return (
-    <NavLink activeClassName="text-primary" to={props.to} className={`${props.className} group text-stone-500  hover:text-stone-700 text-base font-serif font-semibold transition-all `}>
+    <NavLink to={props.to} style={({ isActive }) => (isActive ? { color: '#197cf1' } : undefined)} className={`${props.className} group text-stone-500  hover:text-stone-700 text-base font-serif font-semibold transition-all `}>
       {props.text}
     </NavLink>
   );

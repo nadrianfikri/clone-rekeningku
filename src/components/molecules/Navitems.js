@@ -7,7 +7,7 @@ function Navitems() {
       text: 'Markets',
     },
     {
-      endpoint: '/trade',
+      endpoint: `/trade/1/BTC-IDR`,
       text: 'Exchange',
     },
     {
