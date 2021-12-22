@@ -87,7 +87,6 @@ function Exchange() {
     getOrder();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [price]);
-  console.log(price);
 
   const title = `${price?.cd} to IDR | ${rupiah(price?.c)} | Harga ${price?.n} Hari Ini | Rekeningku`;
   window.document.title = title;

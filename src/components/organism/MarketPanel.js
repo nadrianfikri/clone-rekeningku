@@ -5,10 +5,6 @@ import { Tab } from '@headlessui/react';
 import { Col } from '../atoms/Direction';
 import Search from '../atoms/Search';
 function MarketPanel(props) {
-  // const [coins, setCoins] = useState([]);
-  // const dataCoins = props.dataCoin.map((item) => setCoins(item.logo));
-  // console.log(dataCoins);
-
   return (
     <Col className="w-[274px] h-full border border-slate-300 rounded overflow-hidden text-xs space-y-2">
       <Tab.Group>
