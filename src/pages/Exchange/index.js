@@ -14,11 +14,13 @@ import HistoryPanel from '../../components/organism/HistoryPanel';
 import TransactionPanel from '../../components/organism/TransactionPanel';
 import OrderPanel from '../../components/organism/OrderPanel';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getAllPrices } from '../../actions/pricesAction';
 
 function Exchange() {
   // use redux
+  const { getAllPricesResult, getAllPricesLoading, getAllPricesErr } = useSelector((state) => state.PricesReducer);
+
   const dispatch = useDispatch();
   useEffect(() => {
     // call func
@@ -125,7 +127,7 @@ function Exchange() {
             )}
             <Row className="space-x-2  h-full">
               <Col className="space-y-2">
-                <MarketPanel dataCoin={coins} dataPrice={prices} />
+                {getAllPricesResult ? <MarketPanel dataCoin={coins} dataPrice={getAllPricesResult} /> : getAllPricesLoading ? <p>loading</p> : <p>{getAllPricesErr ? getAllPricesErr : 'data kosong'}</p>}
                 <p className="font-bold">Aktivitas Transaksi</p>
                 <TransactionPanel dataTrans={trans} />
               </Col>
