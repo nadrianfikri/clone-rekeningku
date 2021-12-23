@@ -14,7 +14,18 @@ import HistoryPanel from '../../components/organism/HistoryPanel';
 import TransactionPanel from '../../components/organism/TransactionPanel';
 import OrderPanel from '../../components/organism/OrderPanel';
 
+import { useDispatch } from 'react-redux';
+import { getAllPrices } from '../../actions/pricesAction';
+
 function Exchange() {
+  // use redux
+  const dispatch = useDispatch();
+  useEffect(() => {
+    // call func
+    console.log('1. didmount');
+    dispatch(getAllPrices());
+  }, [dispatch]);
+
   const { id, coin } = useParams();
 
   const [price, setPrice] = useState(null);
