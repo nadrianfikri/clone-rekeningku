@@ -16,6 +16,7 @@ import OrderPanel from '../../components/organism/OrderPanel';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPrices } from '../../actions/pricesAction';
+import Chart from '../../components/organism/Chart';
 
 function Exchange() {
   // use redux
@@ -133,7 +134,9 @@ function Exchange() {
               </Col>
               {/* chart */}
               <Col className="flex-1 space-y-2">
-                <Col className="flex-1 border border-slate-300 rounded ">Chart</Col>
+                <Col className="flex-1 border border-slate-300 rounded ">
+                  <Chart />
+                </Col>
                 <OrderPanel />
               </Col>
             </Row>
